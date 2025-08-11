@@ -36,7 +36,9 @@
 
 <!-- Page CSS -->
 
-<link rel="stylesheet" href="{{ asset('chat-assets/assets/vendor/css/pages/app-chat.css') }}" />
+<link rel="stylesheet" href="{{ asset('chat-assets/assets/vendor/css/pages/app-chat-1.css') }}" />
+<link rel="stylesheet" href="{{ asset('chat-assets/assets/vendor/css/pages/login.css') }}" />
+
 
 <!-- Helpers -->
 <script src="{{ asset('chat-assets/assets/vendor/js/helpers.js') }}"></script>

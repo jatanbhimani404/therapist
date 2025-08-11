@@ -1,0 +1,27 @@
+body {
+    background-image: url("../../../img/backgrounds/login-background.png");
+    background-size: cover !important;
+}
+
+.login-submit-btn {
+    border-radius: 100px;
+    background: #a3bfd9;
+    background: linear-gradient(
+        84deg,
+        rgba(163, 191, 217, 0.5) 4%,
+        rgba(163, 191, 217, 1) 100%
+    );
+}
+
+
+.bg-visual {
+  background-image: url('placeholder.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.login-card {
+  max-width: 400px;
+  width: 100%;
+  background-color: #fff;
+}
