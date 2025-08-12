@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\ChatbotController;
+
+use App\Http\Controllers\Client\ChatbotController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -33,4 +34,4 @@ Route::prefix('chat')->name('chat.')->group(function() {
 
 Route::get('login', function () {
     return view('auth.login');
-});
+})->name('login');

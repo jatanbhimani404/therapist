@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Client;
 
 use App\Exceptions\ChatException;
+use App\Http\Controllers\Controller;
 use App\Services\ChatBotService;
 use Exception;
 use Illuminate\Http\Request;

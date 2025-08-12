@@ -26,7 +26,7 @@
                         <!-- ✅ Show on large screens only -->
                         <div class="d-flex flex-row gap-2 d-none d-lg-block">
                             <button class="btn btn-primary login-btn">Log in</button>
-                            <button class="btn bg-transparent border border-primary signin-btn">Sign In</button>
+                            <button class="btn bg-transparent border border-primary signin-btn">Sign Up</button>
                         </div>
 
                         <!-- ✅ Menu button for small screens -->
@@ -46,7 +46,7 @@
                                 <div class="mb-3 d-flex flex-row gap-2">
                                     <button class="btn btn-primary w-50 login-btn">Log in</button>
                                     <button class="btn bg-transparent border w-50 border-primary signin-btn">Sign
-                                        In</button>
+                                        Up</button>
                                 </div>
 
                             </div>
@@ -154,42 +154,52 @@
 @section('script')
     <script>
         let chatHistory = [];
+        let noOfQuestions = 0;
+        var firstQuestionAsked = false;
         $(document).ready(function() {
 
             // Function to add bot question
             function addBotMessage(text) {
+                noOfQuestions++;
                 $("#survey-questions").append(`
-            <li class="chat-message">
-                <div class="d-flex overflow-hidden">
-                    <div class="user-avatar flex-shrink-0 me-3">
-                        <div class="avatar avatar-sm">
-                            <img src="{{ asset('chat-assets/assets/img/avatars/6.png') }}" class="rounded-circle" />
+                    <li class="chat-message">
+                        <div class="d-flex overflow-hidden">
+                            <div class="user-avatar flex-shrink-0 me-3">
+                                <div class="avatar avatar-sm">
+                                    <img src="{{ asset('chat-assets/assets/img/avatars/6.png') }}" class="rounded-circle" />
+                                </div>
+                            </div>
+                            <div class="chat-message-wrapper flex-grow-1">
+                                <div class="chat-message-text shadow-md bg-white">
+                                    <p class="mb-0">${text}</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="chat-message-wrapper flex-grow-1">
-                        <div class="chat-message-text shadow-md bg-white">
-                            <p class="mb-0">${text}</p>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        `);
+                    </li>
+                `);
                 scrollToBottom();
+
             }
 
             // Function to add user answer
             function addUserMessage(text) {
                 $("#survey-questions").append(`
-            <li class="chat-message chat-message-right">
-                <div class="d-flex overflow-hidden justify-content-end">
-                    <div class="chat-message-wrapper flex-grow-1">
-                        <div class="chat-message-text shadow-md">
-                            <p class="mb-0">${text}</p>
+                    <li class="chat-message chat-message-right">
+                        <div class="d-flex overflow-hidden justify-content-end">
+                            <div class="chat-message-wrapper flex-grow-1">
+                                <div class="chat-message-text shadow-md">
+                                    <p class="mb-0">${text}</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </li>
-        `);
+                    </li>
+                `);
+
+                // if (!firstQuestionAsked) {
+                //     $('#chat-form').submit();
+                //     firstQuestionAsked = true;
+                // }
+
                 scrollToBottom();
             }
 
@@ -198,8 +208,68 @@
                 $("#chat-body").scrollTop($("#chat-body")[0].scrollHeight);
             }
 
+            function chatWithBot(answer) {
+                chatHistory.push({
+                    role: 'user',
+                    content: answer
+                });
+
+                if (noOfQuestions >= 3) {
+                    setTimeout(() => {
+                        addBotMessage('Thank you for your survey! You will be redirected to login screen in 2 seconds!');
+                        $(".chat-history-footer").removeClass('d-block').fadeOut();
+                    }, 500);
+
+                    //save survey data
+                    //code from here
+
+                    setTimeout(() => {
+                        window.location.replace('{{route("login")}}');
+                    }, 2000);
+                } else {
+                    $.ajax({
+                        type: "POST",
+                        url: "{{ route('chat.prompt') }}",
+                        data: JSON.stringify({
+                            _token: "{{ csrf_token() }}", // ✅ Add CSRF token here
+                            conversation: chatHistory,
+                        }),
+                        contentType: "application/json",
+                        success: function(response) {
+                            // hideTypingIndicator();
+                            if (response.status == 200) {
+                                let botMessage = response.data;
+
+                                chatHistory.push({
+                                    role: 'assistant',
+                                    content: botMessage
+                                });
+
+                                addBotMessage(botMessage);
+                                scrollToBottom();
+                            } else {
+                                alert(response.message);
+                                chatHistory.pop();
+                            }
+                        },
+                        error: function(error) {
+                            alert('Something went wrong.');
+                            chatHistory.pop();
+                        },
+                        complete: function() {
+                            $('#send-btn').attr('disabled', false);
+                        }
+                    });
+                }
+
+
+            }
+
             // Ask the first question
-            addBotMessage();
+            addUserMessage('/start');
+            setTimeout(() => {
+                chatWithBot('/start');
+            }, 1000);
 
             // Handle form submission
             $("#chat-form").on("submit", function(e) {
@@ -213,47 +283,10 @@
 
                 $("#chat-input").val(""); // clear input
 
-                $.ajax({
-                    type: "POST",
-                    url: "{{ route('chat.prompt') }}",
-                    data: JSON.stringify({
-                        _token: "{{ csrf_token() }}", // ✅ Add CSRF token here
-                        conversation: chatHistory,
-                        user_type: user_type,
-                        token: auth_token,
-                        user_id: user_id,
-                        study_mode: isStudyModeActive()
-                    }),
-                    contentType: "application/json",
-                    success: function(response) {
-                        hideTypingIndicator();
-                        if (response.status == 200) {
-                            let botMessage = response.data;
-
-                            chatHistory.push({
-                                role: 'assistant',
-                                content: botMessage
-                            });
-
-                            addBotMessage(botMessage);
-                            scrollToBottom(chatBody);
-                        } else {
-                            toastr.error(response.message);
-                            chatHistory.pop();
-                        }
-                    },
-                    error: function(error) {
-                        toastr.error('Something went wrong.');
-                        chatHistory.pop();
-                    },
-                    complete: function() {
-                        $('#send-btn').attr('disabled', false);
-                    }
-                });
 
 
 
-                // $('#send-btn').attr('disabled', false);
+                chatWithBot(answer);
             });
         });
     </script>

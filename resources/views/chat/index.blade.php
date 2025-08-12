@@ -26,7 +26,7 @@
                         <!-- ✅ Show on large screens only -->
                         <div class="d-flex flex-row gap-2 d-none d-lg-block">
                             <button class="btn btn-primary login-btn">Log in</button>
-                            <button class="btn bg-transparent border border-primary signin-btn">Sign In</button>
+                            <button class="btn bg-transparent border border-primary signin-btn">Sign Up</button>
                         </div>
 
                         <!-- ✅ Menu button for small screens -->
@@ -46,7 +46,7 @@
                                 <div class="mb-3 d-flex flex-row gap-2">
                                     <button class="btn btn-primary w-50 login-btn">Log in</button>
                                     <button class="btn bg-transparent border w-50 border-primary signin-btn">Sign
-                                        In</button>
+                                        Up</button>
                                 </div>
 
                             </div>
@@ -163,8 +163,11 @@
 
             function askNextQuestion() {
                 if (current >= questions.length) {
-                    showBotMessage("Thanks for completing the survey! 🎉");
-                    return;
+                    showBotMessage("Thank you for your survey! You will be redirected to login screen in 2 seconds! 🎉");
+
+                    setTimeout(() => {
+                        window.location.replace('{{route("login")}}');
+                    }, 2000);
                 }
 
                 const q = questions[current];
