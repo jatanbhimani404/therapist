@@ -28,7 +28,7 @@
                             style="height: 50px;">
                     </div>
                     <h3 class="text-center fw-bold mb-2">Welcome Back</h3>
-                    <p class="text-center text-muted small mb-4">Please log in to proceed.</p>
+                    <p class="text-center text-muted small mb-4">Log in to continue your journey of healing and self-discovery.</p>
 
                     <form>
                         <div class="mb-3">
@@ -38,7 +38,7 @@
                         <div class="mb-3 position-relative">
                             <label for="password" class="form-label small">Password</label>
                             <input type="password" id="password" class="form-control pe-5" placeholder="Password">
-                            <i class="position-absolute top-50 end-0 translate-middle-y me-3 bi bi-eye-fill"
+                            <i class="position-absolute eye-icon end-0 translate-middle-y me-3 ti ti-eye"
                                 style="cursor: pointer;"></i>
                         </div>
                         <div class="d-flex justify-content-between align-items-center mb-4">
@@ -80,7 +80,7 @@
                     <div class="text-center mt-4 small text-muted">
                         <a href="#" class="me-2">Terms & Conditions</a>
                         <a href="#">Privacy Policy</a>
-                        <div class="mt-1">© 2025 YourApp</div>
+                        <div class="mt-1">© 2025 HealBridge</div>
                     </div>
                 </div>
             </div>

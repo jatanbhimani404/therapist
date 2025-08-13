@@ -34,7 +34,7 @@
     section.bg-light {
         background-color: #faf8f4 !important;
         position: relative;
-        margin: -5rem 10rem 0 10rem;
+        margin: -5rem 16rem 0 16rem;
         z-index: 2;
     }
 

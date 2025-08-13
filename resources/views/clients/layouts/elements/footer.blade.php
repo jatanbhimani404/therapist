@@ -24,14 +24,13 @@
 
     .brand-icon {
         background: #A3BFD9;
-        background: linear-gradient(180deg, rgba(163, 191, 217, 0.51) 50%, rgba(163, 191, 217, 1) 100%);
+        background: linear-gradient(180deg, rgba(163, 191, 217, 0) 0%, rgba(163, 191, 217, 1) 100%);
     }
 
     .newsletter-submit-btn {
         background: #ffffff;
         background: radial-gradient(circle, rgba(255, 255, 255, 0) 0%, rgba(183, 214, 184, 3) 100%);
-        /* right: 6.9rem !important; */
-        margin-top: -19px;
+        right: 6.9rem;
     }
 </style>
 
@@ -42,7 +41,7 @@
 
             <!-- Featured Services -->
             <div class="col-md-3 col-6">
-                <h5 class="fw-bold text-black">FEATURED SERVICES</h5>
+                <h6 class="fw-bold text-uppercase">Featured Services</h6>
                 <hr>
                 <ul class="list-unstyled mt-3">
                     <li>• Individual Therapy</li>
@@ -60,19 +59,19 @@
 
             <!-- Site Navigation -->
             <div class="col-md-3 col-6">
-                <h5 class="fw-bold text-black">SITE NAVIGATION</h5>
+                <h6 class="fw-bold text-uppercase">Site Navigation</h6>
                 <hr>
                 <ul class="list-unstyled mt-3">
-                    <li><a href="#" class="text-decoration-none text-black">• Home</a></li>
-                    <li><a href="#" class="text-decoration-none text-black">• About Us</a></li>
-                    <li><a href="#" class="text-decoration-none text-black">• For Clients</a></li>
-                    <li><a href="#" class="text-decoration-none text-black">• For Therapists</a></li>
-                    <li><a href="#" class="text-decoration-none text-black">• Latest Blogs</a></li>
-                    <li><a href="#" class="text-decoration-none text-black">• Contact Us</a></li>
-                    <li><a href="#" class="text-decoration-none text-black">• Cookies Policy</a></li>
-                    <li><a href="#" class="text-decoration-none text-black">• Privacy Policy</a></li>
-                    <li><a href="#" class="text-decoration-none text-black">• Terms of Service</a></li>
-                    <li><a href="#" class="text-decoration-none text-black">• Disclaimer</a></li>
+                    <li><a href="#" class="text-decoration-none text-black">Home</a></li>
+                    <li><a href="#" class="text-decoration-none text-black">About Us</a></li>
+                    <li><a href="#" class="text-decoration-none text-black">For Clients</a></li>
+                    <li><a href="#" class="text-decoration-none text-black">For Therapists</a></li>
+                    <li><a href="#" class="text-decoration-none text-black">Latest Blogs</a></li>
+                    <li><a href="#" class="text-decoration-none text-black">Contact Us</a></li>
+                    <li><a href="#" class="text-decoration-none text-black">Cookies Policy</a></li>
+                    <li><a href="#" class="text-decoration-none text-black">Privacy Policy</a></li>
+                    <li><a href="#" class="text-decoration-none text-black">Terms of Service</a></li>
+                    <li><a href="#" class="text-decoration-none text-black">Disclaimer</a></li>
                 </ul>
             </div>
 
@@ -115,19 +114,11 @@
                 <!-- Location + Subscribe -->
                 <div class="row">
                     <div class="col">
-                        {{-- <div class="input-group mt-2">
+                        <h6 class="fw-bold mt-4">Subscribe Us</h6>
+                        <div class="input-group mt-2">
                             <input type="email" name="email" class="form-control rounded-pill"
                                 placeholder="Email Address">
                             <button class="btn btn-md text-black newsletter-submit-btn rounded-pill">Submit →</button>
-                        </div> --}}
-
-                        <div class="mb-3 position-relative">
-                            <label for="email" class="form-label small">Suscribe Us</label>
-                            <input type="email" id="email" class="form-control rounded-pill"
-                                placeholder="Email Address">
-                            <button
-                                class="btn btn-md text-black newsletter-submit-btn rounded-pill position-absolute end-0 translate-middle-y">Submit
-                                →</button>
                         </div>
                     </div>
                 </div>

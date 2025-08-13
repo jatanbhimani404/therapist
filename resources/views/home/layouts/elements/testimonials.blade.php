@@ -6,7 +6,7 @@
         background-size: cover;
         min-height: 100vh;
         position: relative;
-        margin-bottom: -5rem;
+        margin-bottom: -7rem;
         z-index: 1;
     }
 
@@ -52,10 +52,18 @@
     .star-rating {
         color: #007b7f;
     }
+
+    @media (max-width: 991px) {
+        .testimonials-bg {
+            min-height: 90vh;
+
+        }
+
+    }
 </style>
 
 
-<div class="container-xxl py-5 testimonials-bg">
+<div class="py-5 testimonials-bg">
     <div class="container-md">
         <h2 class="section-title">What Our Client <span>Are Saying</span></h2>
         <p class="text-center small x-50 mb-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor incidunt non,

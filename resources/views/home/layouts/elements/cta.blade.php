@@ -2,13 +2,14 @@
     .cta-section {
         position: relative;
         z-index: 3;
+        margin: 0 7rem;
     }
 
     /* CTA Section Styling */
     .cta-box {
         position: relative;
         overflow: hidden;
-        border-radius: 50px;
+        border-radius: 30px;
         padding: 2rem;
         box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
         color: #2a2a2a;
@@ -49,6 +50,7 @@
         background: #354142;
         background: radial-gradient(circle, rgba(53, 65, 66, 0.5) 0%, rgba(53, 65, 66, 1) 100%);
         border: 1.8px solid white;
+        padding: 1rem 0;
     }
 
     .take-first-text {
@@ -66,9 +68,10 @@
 <section class="cta-section">
     <div class="container">
         <div class="cta-box text-center p-4">
-            <h1 class="cta-title mb-4 fs-2 fw-bold">
-                <span class="take-first-text">Take the First Step</span> Toward Feeling Better.
-            </h1>
+            <h2 class="cta-title mb-4 fs-2 fw-bold">
+                <span class="take-first-text">Take the First Step</span> <span class="text-black">Toward Feeling
+                    Better.</span>
+            </h2>
             <a href="#" class="btn btn-dark cta-btn btn-lg rounded-pill px-4">
                 Request a Free Consultation <i class="fa-solid fa-arrow-right ms-2"></i>
             </a>
