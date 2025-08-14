@@ -63,7 +63,7 @@
   }
 
   .wellness-feature span {
-    color: #008080;
+    color: #000000;
   }
 
   /* Quote */
@@ -129,46 +129,46 @@
           Our mission is to break down barriers to care by offering flexible, confidential, and affordable therapy options—online or in-person.
         </p>
 
-<!-- Features -->
-<div class="row mt-4 wellness-feature">
-  <div class="col-12 col-md-6 mb-3 d-flex align-items-center flex-column flex-md-row text-center text-md-start">
+        <!-- Features -->
+<div class="row mt-4 wellness-feature text-center text-md-start">
+  <div class="col-12 col-md-6 mb-3 d-flex align-items-center">
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
          stroke="#006D6F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-         class="mb-1 mb-md-0 me-md-2">
+         class="me-2 flex-shrink-0">
       <circle cx="10" cy="10" r="9" />
       <path d="M6 10l3 3 5-6" />
     </svg>
-    Licensed & Trusted
-  </div>
-  
-  <div class="col-12 col-md-6 mb-3 d-flex align-items-center flex-column flex-md-row text-center text-md-start">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-         stroke="#006D6F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-         class="mb-1 mb-md-0 me-md-2">
-      <circle cx="10" cy="10" r="9" />
-      <path d="M6 10l3 3 5-6" />
-    </svg>
-    Personalized Support
+    <span class="text-uppercase">Licensed & Trusted</span>
   </div>
 
-  <div class="col-12 col-md-6 mb-3 d-flex align-items-center flex-column flex-md-row text-center text-md-start">
+  <div class="col-12 col-md-6 mb-3 d-flex align-items-center">
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
          stroke="#006D6F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-         class="mb-1 mb-md-0 me-md-2">
+         class="me-2 flex-shrink-0">
       <circle cx="10" cy="10" r="9" />
       <path d="M6 10l3 3 5-6" />
     </svg>
-    Experienced Therapist
+    <span class="text-uppercase">Personalized Support</span>
   </div>
 
-  <div class="col-12 col-md-6 mb-3 d-flex align-items-center flex-column flex-md-row text-center text-md-start">
+  <div class="col-12 col-md-6 mb-3 d-flex align-items-center">
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
          stroke="#006D6F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-         class="mb-1 mb-md-0 me-md-2">
+         class="me-2 flex-shrink-0">
       <circle cx="10" cy="10" r="9" />
       <path d="M6 10l3 3 5-6" />
     </svg>
-    Midwest Values
+    <span class="text-uppercase">Experienced Therapist</span>
+  </div>
+
+  <div class="col-12 col-md-6 mb-3 d-flex align-items-center">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+         stroke="#006D6F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+         class="me-2 flex-shrink-0">
+      <circle cx="10" cy="10" r="9" />
+      <path d="M6 10l3 3 5-6" />
+    </svg>
+    <span class="text-uppercase">Midwest Values</span>
   </div>
 </div>
 
@@ -179,13 +179,8 @@
 
         <!-- Button -->
         <a href="#" class="read-more-btn mt-3">
-          Read More About
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-               fill="none" stroke="currentColor" stroke-width="2"
-               stroke-linecap="round" stroke-linejoin="round"
-               class="ms-2">
-            <path d="M9 5l7 7-7 7"/>
-          </svg>
+          Read More About &nbsp; &nbsp;
+          <i class="ti ti-arrow-right"></i>
         </a>
 
       </div>
