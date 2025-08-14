@@ -70,7 +70,6 @@
         font-weight: 600;
         color: #6b7280;
         margin-bottom: 2px;
-        
     }
 
     /* Input inside the container */
@@ -100,7 +99,7 @@
 
     /* Checkbox */
     .login-card .form-check-label {
-        font-size: 0.75rem;
+        font-size: 0.90rem;
         color: #6b7280;
     }
 
@@ -111,15 +110,15 @@
 
     /* Sign up button */
     .login-submit-btn {
-        border-radius: 100px;
-        background: linear-gradient(
-            84deg,
-            rgba(163, 191, 217, 0.5) 4%,
-            rgba(163, 191, 217, 1) 100%
+        border-radius: 5px;
+        background: radial-gradient(
+            circle at center,
+            rgba(183, 214, 184, 0.5) 4%,
+            rgba(183, 214, 184, 1) 100%
         );
         color: #111827;
         font-weight: 600;
-        padding: 10px 0;
+        padding: 20px 0;
         transition: all 0.3s ease;
     }
 
@@ -154,50 +153,83 @@
         text-align: center;
         padding: 6px 0;
     }
+
+    /* 📱 Mobile-specific tweaks */
+    @media (max-width: 767.98px) {
+        body {
+            background-image: url('http://localhost/therapist/public/chat-assets/assets/img/backgrounds/therapist-background.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Stack password fields on small screens */
+        .password-row {
+            flex-direction: column !important;
+            gap: 1rem !important;
+        }
+
+        .password-row .form-style {
+            width: 100% !important;
+        }
+
+        /* Equal height for all inputs */
+        .form-style .form-control {
+            height: 45px;
+        }
+
+        /* Footer links centered and spaced on mobile */
+        .footer-links {
+            flex-direction: column !important;
+            text-align: center;
+            gap: 0.5rem;
+        }
+    }
 </style>
 
 
 <div class="container-fluid vh-100">
     <div class="row h-100">
 
-        <!-- Login Form Area - shifted to left side -->
+        <!-- Login Form Area -->
         <div class="col-12 col-md-6 d-flex align-items-center justify-content-center order-md-1 order-1">
             <div class="card shadow-lg p-5 rounded my-3">
                 <div class="text-center mb-4">
                     <img src="{{ asset('chat-assets/assets/img/logo/Logo.png') }}" alt="Logo" class="img-fluid" style="height: 50px;">
                 </div>
-                <h3 class="text-center fw-bold mb-2">Find the Right Therapist for You</h3>
-                <p class="text-center text-muted small mb-4">
-                    Search & book sessions with licensed professionals, confidentially & securely.
+                <h3 class="text-start fw-bold mb-2">Join Our Therapist Network</h3>
+                <p class="text-start text-muted small mb-4">
+                    Connect, schedule, and grow—all in one place.
                 </p>
 
                 <form>
                     <div class="mb-3 form-style">
-                        <label for="name" class="form-label small">Full Name</label>
+                        <label for="name" class="form-label small text-uppercase">Full Name</label>
                         <input type="text" id="name" name="name" class="form-control" placeholder="Your full name">
                     </div>
                     <div class="mb-3 form-style">
-                        <label for="email" class="form-label small">Email Address</label>
+                        <label for="email" class="form-label small text-uppercase">Email Address</label>
                         <input type="email" id="email" name="email" class="form-control" placeholder="Your email">
                     </div>
                     <div class="mb-3 form-style">
-                        <label for="lisenceNo" class="form-label small">Lisence Number/Certification Number</label>
+                        <label for="lisenceNo" class="form-label small text-uppercase">Lisence Number/Certification Number</label>
                         <input type="text" id="lisenceNumber" name="lisenceNumber" class="form-control" placeholder="Your Lisence Number">
                     </div>
-                    <div class="row mb-3 g-3">
+
+                    <!-- Password Fields Row -->
+                    <div class="d-flex gap-3 mb-3 password-row">
                         <!-- Password -->
-                        <div class="col position-relative form-style">
-                            <label for="password" class="form-label small">Password</label>
+                        <div class="flex-fill position-relative form-style">
+                            <label for="password" class="form-label small text-uppercase">Password</label>
                             <input type="password" id="password" class="form-control pe-5" placeholder="Password">
-                            <i class="position-absolute end-0 translate-middle-y me-3 ti ti-eye eye-icon"
+                            <i class="position-absolute end-0 top-50 translate-middle-y me-3 ti ti-eye eye-icon"
                                style="cursor: pointer;" onclick="togglePassword('password', this)"></i>
                         </div>
 
                         <!-- Confirm Password -->
-                        <div class="col position-relative form-style">
-                            <label for="confirmation" class="form-label small">Confirm Password</label>
+                        <div class="flex-fill position-relative form-style">
+                            <label for="confirmation" class="form-label small text-uppercase">Confirm Password</label>
                             <input type="password" id="confirmation" class="form-control pe-5" placeholder="Confirm Password">
-                            <i class="position-absolute end-0 translate-middle-y me-3 ti ti-eye eye-icon"
+                            <i class="position-absolute end-0 top-50 translate-middle-y me-3 ti ti-eye eye-icon"
                                style="cursor: pointer;" onclick="togglePassword('confirmation', this)"></i>
                         </div>
                     </div>
@@ -231,39 +263,25 @@
                         SIGN UP →
                     </button>
 
-                    <div class="d-flex align-items-center mb-3">
-                        <hr class="flex-grow-1">
-                        <span class="px-2 small text-muted">OR</span>
-                        <hr class="flex-grow-1">
-                    </div>
-
-                    <div class="d-flex gap-2">
-                        <button class="btn flex-fill btn-outline-secondary signin-btn">
-                            <img src="{{ asset('chat-assets/assets/img/icons/brands/google-icon.png') }}" alt="" style="width: 15px;">
-                            <small class="d-lg-block d-none">&nbsp;Google</small>
-                        </button>
-                        <button class="btn flex-fill btn-outline-secondary signin-btn">
-                            <img src="{{ asset('chat-assets/assets/img/icons/brands/facebook-icon.png') }}" alt="" style="width: 15px;">
-                            <small class="d-lg-block d-none">&nbsp;Facebook</small>
-                        </button>
-                        <button class="btn flex-fill btn-outline-secondary signin-btn">
-                            <img src="{{ asset('chat-assets/assets/img/icons/brands/apple-icon.png') }}" alt="" style="width: 15px;">
-                            <small class="d-lg-block d-none">&nbsp;Apple</small>
-                        </button>
+                    <div class="d-flex justify-content-center mt-3 mb-3">
+                        <p class="mb-0 text-muted small">
+                            Have a therapist account? <a href="#" class="fw-semibold">Log in to continue</a>
+                        </p>
                     </div>
                 </form>
 
-                <div class="text-center mt-4 small text-muted">
-                    <a href="#" class="me-2">Terms & Conditions</a>
+                <!-- Footer Links -->
+                <div class="d-flex justify-content-center gap-4 mt-4 small text-muted footer-links">
+                    <a href="#">Terms & Conditions</a>
                     <a href="#">Privacy Policy</a>
-                    <div class="mt-1">© 2025 HealBridge</div>
+                    <a href="#">© 2025 HealBridge</a>
                 </div>
             </div>
         </div>
 
-        <!-- Visual / Illustration Area - now on right side -->
+        <!-- Visual Area -->
         <div class="col-md-6 d-none d-md-flex align-items-center justify-content-center bg-visual order-md-2 order-2">
-            <!-- Optional placeholder for your graphics -->
+            <!-- Optional placeholder for graphics -->
         </div>
     </div>
 </div>
