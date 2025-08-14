@@ -53,3 +53,25 @@ Route::prefix('client')->name('client.')->group(function () {
         return view('clients.billing.index');
     });
 });
+
+Route::prefix('therapist')->name('therapist.')->group(function () {
+    Route::get('login', function () {
+        return view('therapist.auth.login');
+    })->name('login');
+
+    Route::get('sign-up', function () {
+        return view('therapist.auth.signup');
+    })->name('signup');
+
+    Route::get('dashboard', function () {
+        return view('therapist.dashboard.index');
+    });
+
+    Route::get('profile', function() {
+        return view('therapist.profile.index');
+    });
+
+    Route::get('billing-payments', function() {
+        return view('therapist.billing.index');
+    });
+});

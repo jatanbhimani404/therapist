@@ -13,6 +13,8 @@
     @include('home.layouts.elements.hero')
     @include('home.layouts.elements.stats')
     @include('home.layouts.elements.trusted')
+    @include('home.layouts.elements.about')
+    @include('home.layouts.elements.whoweare')
     @include('home.layouts.elements.faq')
     @include('home.layouts.elements.blog')
     @include('home.layouts.elements.testimonials')
